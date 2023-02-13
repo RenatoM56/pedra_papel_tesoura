@@ -1,0 +1,48 @@
+import random
+
+def jogo_pedra_papel_tesoura():
+    # Lista de jogadas possíveis
+    jogadas = ["pedra", "papel", "tesoura"]
+    # Seleção aleatória da jogada do computador
+    jogada_computador = random.choice(jogadas)
+    # Variável para armazenar a jogada do jogador
+    jogada_jogador = ""
+
+    # Loop infinito até que o jogador selecione "s" para sair
+    while jogada_jogador != "s":
+        
+        print("Jogo Pedra, Papel, Tesoura\n")
+        jogada_jogador = input("Faça sua jogada (pedra, papel, tesoura ou s para sair): ").lower()
+
+        # Verifica se o jogador deseja sair
+        if jogada_jogador == "s":
+            break
+
+        # Verifica se a jogada do jogador é válida
+        while jogada_jogador not in jogadas:
+           
+            print("Jogada inválida. Tente novamente\n")
+            jogada_jogador = input("Faça sua jogada (pedra, papel, tesoura ou s para sair): ").lower()
+
+        # Jogada aleatória do computador
+        jogada_computador = random.choice(jogadas)
+
+        # Exibe as jogadas dos jogadores
+        print("\nComputador jogou:", jogada_computador)
+        print("Jogador jogou:", jogada_jogador)
+
+        # Verifica o resultado da partida
+        if jogada_computador == jogada_jogador:
+            print("\nEmpate!")
+        elif jogada_computador == "pedra" and jogada_jogador == "tesoura":
+            print("\nComputador venceu!")
+        elif jogada_computador == "papel" and jogada_jogador == "pedra":
+            print("\nComputador venceu!")
+        elif jogada_computador == "tesoura" and jogada_jogador == "papel":
+            print("\nComputador venceu!")
+        else:
+            print("\nJogador venceu!")
+
+        input("\nAperte enter para continuar...")
+
+jogo_pedra_papel_tesoura()
